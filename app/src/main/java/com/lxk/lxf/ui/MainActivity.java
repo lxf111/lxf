@@ -1,7 +1,8 @@
-package com.lxk.lxf;
+package com.lxk.lxf.ui;
 
 import android.os.Bundle;
 
+import com.lxk.lxf.R;
 import com.lxk.lxf.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {

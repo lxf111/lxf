@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="theme">#33CC99</color>
+
+    <color name="lv">#0fb4f4</color>
+
+    <!--背景色-->
+    <color name="bg_color">#F2F5F9</color>
+
+
+    <!--输入框背景色-->
+    <color name="et_bg">#FAFAFA</color>
+    <!--前景色-->
+    <color name="white">#FFFFFF</color>
+    <!--标题栏颜色-->
+    <color name="title_bg">#42B4B4</color>
+
+    <!--下滑线颜色-->
+    <color name="view_line">#E6E6E6</color>
+
+    <color name="tv_153">#999999</color>
+    <color name="tv_102">#666666</color>
+    <color name="tv_51">#333333</color>
+    <color name="tv_26">#1a1a1a</color>
+    <color name="tv_40">#282828</color>
+
+    <color name="tv_title">#2E3852</color>
+    <color name="tv_content">#6D7598</color>
+
+    <color name="hint_color">#A3BAC0</color>
+
+    <color name="word_title">#ff9a13</color>
+
+    <color name="register">#E8820C</color>
+
+    <color name="tv_commen">#4D4D4D</color>
+
+    <!--灰色字体-->
+    <color name="gray">#a3a4c0</color>
+
+    <!--红色-->
+    <color name="rob_red">#ee2c2c</color>
+    <color name="process_color">#fe99ae</color>
+    <!--蓝色-->
+    <color name="rob_price">#0fb4f4</color>
+
+    <!--已完成-->
+    <color name="order_complete">#fe6700</color>
+    <!--待评价-->
+    <color name="order_evaluate">#0fb4f4</color>
+    <!--待评价-->
+    <color name="order_overdue">#4c4c4c</color>
+    <!--待使用-->
+    <color name="order_use">#fe4838</color>
+
+    <color name="business_bg">#3e4454</color>
+
+    <color name="bg_gray3">#CCCCCC</color>
+
+    <!--余额增加-->
+    <color name="balance_add">#fd5555</color>
+    <!--余额减少-->
+    <color name="balance_delete">#f68d01</color>
+
+    <color name="app_main_default">#4D4D4D</color>
+    <color name="text_color_green">#039a4d</color>
+    <color name="commodity_dec_text">#5b669a</color>
+    <color name="translucent">#30000000</color>
+</resources>

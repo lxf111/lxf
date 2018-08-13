@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+    <include layout="@layout/title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_adver"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_wiatom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@mipmap/goods_success"
+                    android:gravity="center"
+                    android:text="考试报名"
+                    android:textColor="@color/tv_40"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_lift"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@mipmap/goods_success"
+                    android:gravity="center"
+                    android:text="学习培训"
+                    android:textColor="@color/tv_40"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_job"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@mipmap/goods_success"
+                    android:gravity="center"
+                    android:text="课外兴趣"
+                    android:textColor="@color/tv_40"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_change"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@mipmap/goods_success"
+                    android:gravity="center"
+                    android:text="学习故事"
+                    android:textColor="@color/tv_40"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:text="考试报名 |"
+                    android:textColor="@color/tv_26"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="我们推荐的或许正是你需要的"
+                    android:textColor="@color/tv_102"
+                    android:textSize="10sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_sign_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingRight="15dp"
+                    android:text="查看更多 >>"
+                    android:textColor="@color/theme"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+
+            <com.lxk.lxf.view.MyGridView
+                android:id="@+id/gv_sign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:horizontalSpacing="10dp"
+                android:numColumns="2"
+                android:verticalSpacing="10dp">
+
+            </com.lxk.lxf.view.MyGridView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:text="学习培训 |"
+                    android:textColor="@color/tv_26"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="我们推荐的或许正是你需要的"
+                    android:textColor="@color/tv_102"
+                    android:textSize="10sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_train_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingRight="15dp"
+                    android:text="查看更多 >>"
+                    android:textColor="@color/theme"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+
+            <com.lxk.lxf.view.MyGridView
+                android:id="@+id/gv_train"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:horizontalSpacing="10dp"
+                android:numColumns="2"
+                android:verticalSpacing="10dp">
+
+            </com.lxk.lxf.view.MyGridView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:text="课外兴趣 |"
+                    android:textColor="@color/tv_26"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="我们推荐的或许正是你需要的"
+                    android:textColor="@color/tv_102"
+                    android:textSize="10sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_interest_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingRight="15dp"
+                    android:text="查看更多 >>"
+                    android:textColor="@color/theme"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+
+            <com.lxk.lxf.view.MyGridView
+                android:id="@+id/gv_interest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:horizontalSpacing="10dp"
+                android:numColumns="2"
+                android:verticalSpacing="10dp">
+
+            </com.lxk.lxf.view.MyGridView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:text="学习故事 |"
+                    android:textColor="@color/tv_26"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="我们推荐的或许正是你需要的"
+                    android:textColor="@color/tv_102"
+                    android:textSize="10sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_story_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:paddingRight="15dp"
+                    android:text="查看更多 >>"
+                    android:textColor="@color/theme"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+
+            <com.lxk.lxf.view.MyGridView
+                android:id="@+id/gv_story"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:horizontalSpacing="10dp"
+                android:numColumns="2"
+                android:verticalSpacing="10dp">
+
+            </com.lxk.lxf.view.MyGridView>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

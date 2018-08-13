@@ -53,7 +53,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         String phone = (String) SPUtils.get(context, "phone", "");
         String pwd = (String) SPUtils.get(context, "pwd", "");
 
-        SPUtils.put(context,"isFirst",false);
+        SPUtils.put(context, "isFirst", false);
 
         if (phone != null) {
             etPhone.setText("" + phone);
@@ -150,6 +150,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
      * 登录
      */
     private void submit(String phone, String pwd) {
+        Intent intent = new Intent(context, MainActivity.class);
+        startActivity(intent);
 //        String token = JPushInterface.getRegistrationID(LoginActivity.this);
 //        Api.login(context, phone, pwd, token, new MyCallBack() {
 //            @Override

@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
       <module fileurl="file://$PROJECT_DIR$/lxf.iml" filepath="$PROJECT_DIR$/lxf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/standardadapter/standardadapter.iml" filepath="$PROJECT_DIR$/standardadapter/standardadapter.iml" />
     </modules>
   </component>
 </project>

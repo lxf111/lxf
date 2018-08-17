@@ -1,1 +1,1 @@
-include ':app', ':standardadapter', ':libs'
+include ':app', ':standardadapter', ':libs', ':picture_library', ':ucrop'

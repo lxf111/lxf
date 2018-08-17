@@ -28,6 +28,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:paddingRight="15dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:src="@mipmap/home_search" />
 
 

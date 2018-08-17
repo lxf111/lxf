@@ -1,5 +1,6 @@
 package com.lxk.lxf.ui.home.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -80,9 +81,11 @@ public class WiatomActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
+        Intent intent = null;
         switch (v.getId()) {
             //考试报名
             case R.id.tv_sign_more:
+                intent = new Intent(context, SignUpActivity.class);
                 break;
             //学习培训
             case R.id.tv_train_more:
@@ -93,6 +96,9 @@ public class WiatomActivity extends BaseActivity implements View.OnClickListener
             //故事
             case R.id.tv_story_more:
                 break;
+        }
+        if (intent != null) {
+            startActivity(intent);
         }
     }
 }

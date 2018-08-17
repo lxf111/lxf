@@ -72,23 +72,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 标题栏：白色背景
-     *
-     * @param title 标题名
-     */
-    protected void initTitle2(String title) {
-        TextView tv_title = (TextView) findViewById(R.id.tv_title);
-        tv_title.setText(title);
-        ImageView iv_back = (ImageView) findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppManager.finishActivity((Activity) context);
-                finish();
-            }
-        });
-    }
-    /**
      * 初始化控件
      */
     protected  abstract void initView();

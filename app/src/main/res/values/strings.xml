@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">测试</string>
+
+    <string name="cash_rule">提现说明：
+        \n1.最低提现金额为1元。
+        \n2.提现手续费为%1$d，手续费不足1元按照1元收取。</string>
 </resources>

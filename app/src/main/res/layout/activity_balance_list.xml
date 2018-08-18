@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/view_line" />
+
+    <com.ybao.pullrefreshview.layout.PullRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ListView
+            android:id="@+id/list_balance"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/view_line"
+            android:dividerHeight="0.5dp"
+            android:scrollbars="none">
+
+        </ListView>
+
+        <com.lxk.lxf.view.NormalHeaderView
+            android:id="@+id/headerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.lxk.lxf.view.NormalHeaderView>
+
+        <com.lxk.lxf.view.NormalFooterView
+            android:id="@+id/footerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.lxk.lxf.view.NormalFooterView>
+    </com.ybao.pullrefreshview.layout.PullRefreshLayout>
+</LinearLayout>

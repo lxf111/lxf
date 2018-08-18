@@ -91,7 +91,19 @@
         <activity
             android:name=".ui.my.activity.PersonEditorActivity"
             android:screenOrientation="portrait" />
-
+        <!--修改个人资料-->
+        <activity android:name=".ui.my.activity.WalletActivity"
+            android:screenOrientation="portrait"/>
+        <!--钱包-->
+        <activity android:name=".ui.my.activity.BalanceListActivity"
+            android:screenOrientation="portrait"/>
+        <!--零钱明细-->
+        <activity android:name=".ui.my.activity.RechargeActivity"
+            android:screenOrientation="portrait"/>
+        <!--充值-->
+        <activity android:name=".ui.my.activity.CashActivity"
+            android:screenOrientation="portrait"/>
+        <!--提现-->
 
     </application>
 

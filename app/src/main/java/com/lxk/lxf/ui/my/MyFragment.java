@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.lxk.lxf.R;
 import com.lxk.lxf.base.BaseFragment;
 import com.lxk.lxf.ui.my.activity.PersonEditorActivity;
+import com.lxk.lxf.ui.my.activity.WalletActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -135,6 +136,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                 break;
             //钱包
             case R.id.lin_wallet:
+                intent = new Intent(context, WalletActivity.class);
                 break;
             //优惠卷
             case R.id.lin_integral:

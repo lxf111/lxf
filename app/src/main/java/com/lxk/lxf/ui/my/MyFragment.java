@@ -15,6 +15,7 @@ import com.lxk.lxf.R;
 import com.lxk.lxf.base.BaseFragment;
 import com.lxk.lxf.ui.my.activity.PersonEditorActivity;
 import com.lxk.lxf.ui.my.activity.WalletActivity;
+import com.lxk.lxf.ui.order.OrderActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -144,6 +145,26 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
             //个人资料
             case R.id.rel_data:
                 intent = new Intent(context, PersonEditorActivity.class);
+                break;
+            //全部订单
+            case R.id.tv_all_exchange:
+                intent = new Intent(context, OrderActivity.class);
+                intent.putExtra("", 0);
+                break;
+            //待支付
+            case R.id.lin_pay:
+                intent = new Intent(context, OrderActivity.class);
+                intent.putExtra("", 1);
+                break;
+            //待收货
+            case R.id.lin_shou:
+                intent = new Intent(context, OrderActivity.class);
+                intent.putExtra("", 2);
+                break;
+            //已完成
+            case R.id.lin_complete:
+                intent = new Intent(context, OrderActivity.class);
+                intent.putExtra("", 3);
                 break;
         }
         if (intent != null) {

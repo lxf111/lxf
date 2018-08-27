@@ -12,10 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.lxk.lxf.R;
 import com.lxk.lxf.base.BaseActivity;
+import com.lxk.lxf.utils.AppManager;
 import com.lxk.lxf.utils.PhoneAndPwdUtil;
+import com.lxk.lxf.utils.SPUtils;
 import com.lxk.lxf.utils.TimerUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,6 +29,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+
+import okhttp3.MediaType;
 
 
 /**
@@ -229,6 +236,26 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 //                }
 //            }
 //        });
+        String param="{\"account\":\"18134416406\",\"password\":\"18134416406\"" +
+                ",\"mobile\":\"18134416406\",\"code\":\"18134416406\"}";
+        Log.e("TAG","json="+param);
+        OkHttpUtils
+                .postString()
+                .mediaType(MediaType.parse("application/json; charset=utf-8"))
+                .content(param)
+                .url("http://60.205.190.247:8088/api/register")
+                .build()//
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(okhttp3.Call call, Exception e, int id) {
+                        Log.e("TAG", "e=" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+
+                    }
+                });
     }
 
     /**

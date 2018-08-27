@@ -33,16 +33,25 @@ public class WiatomActivity extends BaseActivity implements View.OnClickListener
 
     private HomeRecommendAdapter recommendAdapter;//考试推荐
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    private int type = 0;
 
-    }
 
     @Override
     protected void initView() {
         setContentView(R.layout.activity_wiatom);
-        initTitle("慧学习");
+        type = getIntent().getIntExtra("type", 0);
+        if (type == 1) {
+            initTitle("慧学习");
+        } else if (type == 2) {
+            initTitle("慧生活");
+        } else if (type == 3) {
+            initTitle("慧求职");
+        } else if (type == 4) {
+            initTitle("慧创业");
+        } else {
+            initTitle("慧学习");
+        }
+
         ivAdver = (ImageView) findViewById(R.id.iv_adver);
         tvWiatom = (TextView) findViewById(R.id.tv_wiatom);
         tvLift = (TextView) findViewById(R.id.tv_lift);

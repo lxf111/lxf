@@ -100,18 +100,22 @@ public class HomeFragment extends BaseFragment implements XBanner.XBannerAdapter
             //会学习
             case R.id.tv_wiatom:
                 intent = new Intent(context, WiatomActivity.class);
+                intent.putExtra("type",1);
                 break;
             //会生活
             case R.id.tv_lift:
                 intent = new Intent(context, WiatomActivity.class);
+                intent.putExtra("type",2);
                 break;
             //会求职
             case R.id.tv_job:
                 intent = new Intent(context, WiatomActivity.class);
+                intent.putExtra("type",3);
                 break;
             //会创业
             case R.id.tv_change:
                 intent = new Intent(context, WiatomActivity.class);
+                intent.putExtra("type",4);
                 break;
         }
         if (intent != null) {

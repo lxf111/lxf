@@ -38,4 +38,5 @@ dependencies {
     implementation project(':picture_library')
     implementation 'com.android.support:design:26.1.0'
     implementation project(':okhttputils')
+    compile 'com.github.hss01248:DialogUtil:1.0.4'
 }

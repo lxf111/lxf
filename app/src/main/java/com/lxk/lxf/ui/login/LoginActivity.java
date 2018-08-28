@@ -16,14 +16,19 @@ import android.widget.Toast;
 
 import com.lxk.lxf.R;
 import com.lxk.lxf.base.BaseActivity;
+import com.lxk.lxf.constant.Constant;
 import com.lxk.lxf.ui.MainActivity;
 import com.lxk.lxf.utils.Md5Util;
+import com.lxk.lxf.utils.MyOkhttp;
 import com.lxk.lxf.utils.PhoneAndPwdUtil;
 import com.lxk.lxf.utils.SPUtils;
 import com.lxk.lxf.utils.StatusBarUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2018/1/17 0017.
@@ -128,7 +133,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 SPUtils.put(context, "pwd", pwd);
 
                 try {
-                    submit(phone, Md5Util.md5Encode(pwd));
+                    submit(phone, pwd);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -150,45 +155,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
      * 登录
      */
     private void submit(String phone, String pwd) {
-        Intent intent = new Intent(context, MainActivity.class);
-        startActivity(intent);
-//        String token = JPushInterface.getRegistrationID(LoginActivity.this);
-//        Api.login(context, phone, pwd, token, new MyCallBack() {
-//            @Override
-//            public void onSuccess(String response) {
-//                String result = "";
-//                String resultNote = "";
-//                String uid = "";
-//                try {
-//                    JSONObject object = new JSONObject(response);
-//
-//                    if (object.has("result") && !object.isNull("result")) {
-//                        result = object.getString("result");
-//                    }
-//
-//                    if (object.has("resultNote") && !object.isNull("resultNote")) {
-//                        resultNote = object.getString("resultNote");
-//                    }
-//
-//                    if (object.has("uid") && !object.isNull("uid")) {
-//                        uid = object.getString("uid");
-//                        Constants.setUrl(uid);
-//                        Log.i("ssss", "onSuccess: " + uid);
-//                    }
-//
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                if (result.equals("0")) {
-//                    SPUtils.put(context, "uid", uid);
-//                    Intent intent = new Intent(context, MainActivity.class);
-//                    startActivity(intent);
-//                    finish();
-//                    Toast.makeText(context, resultNote, Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(context, resultNote, Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+        Map<String, String> param = new HashMap<>();
+        param.put("account", "" + phone);
+        param.put("password", "" + pwd);
+        MyOkhttp.post(context, Constant.base_url + Constant.login, param, new MyOkhttp.CallBack() {
+            @Override
+            public void onRequestComplete(String response, String result, String resultNote) {
+                if (result.equals("0")) {
+                    Intent intent = new Intent(context, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(context, resultNote, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

@@ -15,7 +15,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.lxk.lxf.R;
 import com.lxk.lxf.base.BaseActivity;
+import com.lxk.lxf.constant.Constant;
 import com.lxk.lxf.utils.AppManager;
+import com.lxk.lxf.utils.MyOkhttp;
 import com.lxk.lxf.utils.PhoneAndPwdUtil;
 import com.lxk.lxf.utils.SPUtils;
 import com.lxk.lxf.utils.TimerUtil;
@@ -125,18 +127,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     return;
                 }
 
-                if (code.equals("")) {
-                    Toast.makeText(this, "请先获取验证码", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 if (TextUtils.isEmpty(yzm)) {
                     Toast.makeText(this, "请输入验证码", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (!code.equals(yzm)) {
-                    Toast.makeText(this, "请输入正确的验证码", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -165,11 +157,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     return;
                 }
 
-//                Intent intent = new Intent(context, UpdateSchoolActivity.class);
-//                intent.putExtra("phone",""+phone2);
-//                intent.putExtra("pwd",""+pwd);
-//                intent.putExtra("type", 1);
-//                startActivity(intent);
+                register(phone2, yzm, pwd);
 
                 break;
             case R.id.tv_go_login:
@@ -194,114 +182,52 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     /**
-     * 验证手机号是否已经注册
-     *
+     * 发送验证码
+     * <p>
      * existence  1已注册  0未注册
      */
     private void sendYzm() {
-//        Api.confirmPhone(context, phone, new MyCallBack() {
-//            @Override
-//            public void onSuccess(String response) {
-//                String result = "";
-//                String resultNote = "";
-//                String existence="";
-//                try {
-//                    JSONObject object = new JSONObject(response);
-//
-//                    if (object.has("result") && !object.isNull("result")) {
-//                        result = object.getString("result");
-//                    }
-//
-//                    if (object.has("resultNote") && !object.isNull("resultNote")) {
-//                        resultNote = object.getString("resultNote");
-//                    }
-//
-//                    if (object.has("existence") && !object.isNull("existence")) {
-//                        existence = object.getString("existence");
-//                    }
-//
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                if (result.equals("0")) {
-//                    if(existence.equals("0")){
-//                        code = TimerUtil.getNum();
-////                        etYzm.setText(code);
-//                        sendMessage(phone,code);
-//                    }else{
-//                        Toast.makeText(context, resultNote, Toast.LENGTH_SHORT).show();
-//                    }
-//                } else {
-//                    Toast.makeText(context, resultNote, Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-        String param="{\"account\":\"18134416406\",\"password\":\"18134416406\"" +
-                ",\"mobile\":\"18134416406\",\"code\":\"18134416406\"}";
-        Log.e("TAG","json="+param);
-        OkHttpUtils
-                .postString()
-                .mediaType(MediaType.parse("application/json; charset=utf-8"))
-                .content(param)
-                .url("http://60.205.190.247:8088/api/register")
-                .build()//
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(okhttp3.Call call, Exception e, int id) {
-                        Log.e("TAG", "e=" + e.getMessage());
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-
-                    }
-                });
+        MyOkhttp.get(context, "http://60.205.190.247:8088/api/register/getCode?mobile=" + phone, new MyOkhttp.CallBack() {
+            @Override
+            public void onRequestComplete(String response, String result, String resultNote) {
+                if (result.equals("0")) {
+                    TimerUtil timerUtil = new TimerUtil(tvYzm);
+                    timerUtil.timers();
+                    Toast.makeText(RegisterActivity.this, "验证码发送成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(RegisterActivity.this, resultNote, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     /**
-     * 发送短信
+     * 注册
+     *
      * @param phone  手机号
      * @param number 验证码code
      */
-    private void sendMessage(String phone, String number) {
-
-        Map<String, String> params = new HashMap<>();
-        try {
-            params.put("tpl_value", URLEncoder.encode("#code#=" + number, "utf-8"));
-            params.put("dtype", "json");
-            params.put("tpl_id", "62407");
-            params.put("key", "da27d42232c1d8018e2a7d9acf77a936");
-            params.put("mobile", phone);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-//        OkHttpUtils
-//                .post()
-//                .params(params)
-//                .url(Constants.JUHE_SEND_URL)
-//                .build()//
-//                .execute(new StringCallback() {
-//                    @Override
-//                    public void onError(Call call, Exception e, int id) {
-//                        Log.i("TAG", "e=" + e.getMessage());
-//                        Toast.makeText(context, "验证码发送失败", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                    @Override
-//                    public void onResponse(String response, int id) {
-//                        Log.i("TAG", "response" + response);
-//                        Gson gson = new Gson();
-//                        VerificationCodemodel Vbean = gson.fromJson(response, VerificationCodemodel.class);
-//                        if ("操作成功".equals(Vbean.reason)) {
-//                            Toast.makeText(context, "验证码已发送", Toast.LENGTH_SHORT).show();
-//                            TimerUtil timerUtil = new TimerUtil(tvYzm);
-//                            timerUtil.timers();
-//                        } else {
-//                            Toast.makeText(context, "验证码发送失败", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
+    private void register(String phone, String number, String pwd) {
+        Map<String, String> param = new HashMap<>();
+        param.put("account", "" + phone);
+        param.put("password", "" + pwd);
+        param.put("mobile", "" + phone);
+        param.put("code", "" + number);
+        MyOkhttp.post(context, Constant.base_url + Constant.register, param, new MyOkhttp.CallBack() {
+            @Override
+            public void onRequestComplete(String response, String result, String resultNote) {
+                if (result.equals("0")) {
+                    finish();
+                    Toast.makeText(RegisterActivity.this, resultNote, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(RegisterActivity.this, resultNote, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

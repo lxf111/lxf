@@ -54,7 +54,7 @@ public class JobFragment extends BaseFragment{
         settings.setUseWideViewPort(true);
         // 自适应屏幕
         settings.setLoadWithOverviewMode(true);
-        webView.loadUrl("http://www.baidu.com/");
+        webView.loadUrl("http://news.ifeng.com/");
 //        if (type == 0) {
 //            webView.loadUrl("http://120.77.247.30/education/aboutus/disPlayDetail?id=1");
 //        } else if (type == 1) {

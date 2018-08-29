@@ -62,13 +62,19 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait">
+        </activity>
+        <!--登录-->
+
+        <activity android:name=".ui.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--登录-->
+        <!--欢迎页-->
+
         <activity
             android:name=".ui.login.RegisterActivity"
             android:screenOrientation="portrait" />
@@ -113,6 +119,19 @@
             android:name=".ui.order.OrderActivity"
             android:screenOrientation="portrait" />
         <!--订单-->
+
+        <activity
+            android:name=".ui.my.activity.AuthenActivity"
+            android:screenOrientation="portrait" />
+        <!--商家认证-->
+
+        <activity
+            android:name=".ui.my.activity.PublicActivity"
+            android:screenOrientation="portrait" />
+        <!--我要发布-->
+        <activity android:name=".ui.my.activity.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <!--设置-->
 
     </application>
 

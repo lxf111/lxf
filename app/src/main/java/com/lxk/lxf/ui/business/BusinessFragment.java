@@ -55,8 +55,7 @@ public class BusinessFragment extends BaseFragment{
         settings.setUseWideViewPort(true);
         // 自适应屏幕
         settings.setLoadWithOverviewMode(true);
-        webView.loadUrl("http://www.baidu.com/");
-
+        webView.loadUrl("http://toutiao.chinaso.com/rd/detail/20180812/1000200033135701534065499033758201_1.html");
 //        if (type == 0) {
 //
 //        } else if (type == 1) {

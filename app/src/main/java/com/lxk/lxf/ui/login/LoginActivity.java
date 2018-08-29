@@ -162,6 +162,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {
                 if (result.equals("0")) {
+                    SPUtils.put(context, "isLogin", false);
                     Intent intent = new Intent(context, MainActivity.class);
                     startActivity(intent);
                     finish();

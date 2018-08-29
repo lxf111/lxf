@@ -13,7 +13,10 @@ import android.widget.TextView;
 
 import com.lxk.lxf.R;
 import com.lxk.lxf.base.BaseFragment;
+import com.lxk.lxf.ui.my.activity.AuthenActivity;
 import com.lxk.lxf.ui.my.activity.PersonEditorActivity;
+import com.lxk.lxf.ui.my.activity.PublicActivity;
+import com.lxk.lxf.ui.my.activity.SettingActivity;
 import com.lxk.lxf.ui.my.activity.WalletActivity;
 import com.lxk.lxf.ui.order.OrderActivity;
 
@@ -89,21 +92,15 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
         tvAllExchange = (TextView) view.findViewById(R.id.tv_all_exchange);
         tvAllExchange.setOnClickListener(this);
         ivPay = (ImageView) view.findViewById(R.id.iv_pay);
-        ivPay.setOnClickListener(this);
         tvPayNumber = (TextView) view.findViewById(R.id.tv_pay_number);
-        tvPayNumber.setOnClickListener(this);
         linPay = (LinearLayout) view.findViewById(R.id.lin_pay);
         linPay.setOnClickListener(this);
         ivSend = (ImageView) view.findViewById(R.id.iv_send);
-        ivSend.setOnClickListener(this);
         tvSendNumber = (TextView) view.findViewById(R.id.tv_send_number);
-        tvSendNumber.setOnClickListener(this);
         linSend = (LinearLayout) view.findViewById(R.id.lin_send);
         linSend.setOnClickListener(this);
         ivShou = (ImageView) view.findViewById(R.id.iv_shou);
-        ivShou.setOnClickListener(this);
         tvShou = (TextView) view.findViewById(R.id.tv_shou);
-        tvShou.setOnClickListener(this);
         linShou = (LinearLayout) view.findViewById(R.id.lin_shou);
         linShou.setOnClickListener(this);
         linComplete = (LinearLayout) view.findViewById(R.id.lin_complete);
@@ -134,6 +131,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
         switch (v.getId()) {
             //商家认证
             case R.id.lin_watch:
+                intent = new Intent(context, AuthenActivity.class);
                 break;
             //钱包
             case R.id.lin_wallet:
@@ -165,6 +163,14 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
             case R.id.lin_complete:
                 intent = new Intent(context, OrderActivity.class);
                 intent.putExtra("", 3);
+                break;
+            //我要发布
+            case R.id.tv_record:
+                intent = new Intent(context, PublicActivity.class);
+                break;
+            //设置
+            case R.id.tv_setting:
+                intent = new Intent(context, SettingActivity.class);
                 break;
         }
         if (intent != null) {

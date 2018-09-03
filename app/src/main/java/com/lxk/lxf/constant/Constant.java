@@ -14,7 +14,7 @@ public class Constant {
     /**
      * 登录接口
      */
-    public static String login = "api/login";//登录
-    public static String register = "api/register";//登录
+    public static String login = "api/center/login";//登录
+    public static String register = "api/center/register";//注册
     public static String get_yzm = "api/register/getCode";//获取验证码
 }

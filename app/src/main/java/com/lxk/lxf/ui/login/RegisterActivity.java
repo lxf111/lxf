@@ -187,7 +187,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
      * existence  1已注册  0未注册
      */
     private void sendYzm() {
-        MyOkhttp.get(context, "http://60.205.190.247:8088/api/register/getCode?mobile=" + phone, new MyOkhttp.CallBack() {
+        MyOkhttp.get(context, "http://60.205.190.247:8088/api/sms/getCode?mobile=" + phone, new MyOkhttp.CallBack() {
             @Override
             public void onRequestComplete(String response, String result, String resultNote) {
                 if (result.equals("0")) {
